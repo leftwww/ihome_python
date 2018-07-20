@@ -25,3 +25,22 @@ hash md5 sha1
 解决方式
 一： 自己搭建文件存储系统  开源文件 FastDFS  HDF
 二： 租用第三方的文件存储系统 ->七牛云(可以解决上面的问题)
+存储文件的名字：
+# 要上传的空间
+bucket_name = 'ihome'
+
+域名：http://p7kohmjxl.bkt.clouddn.com/
+
+AK -- nrL2RMP5dkv0Z4hHtWyo5-RBBDGyfRrcHqqWppi2
+SK -- Ztz8olT8r_952F0e55jxA381rwUTg6uHPxn_j02n
+
+
+3. 登陆错误 超过次数 封ip
+
+选用redis记录用户登陆的错误次数，
+
+每错误一次，redis中的数据加1，
+达到最大限制次数时，不在经行用户名密码判断
+
+每个用户单独维护一条记录，维护数据有效期
+"access_%s" % user_ip :string(次数)

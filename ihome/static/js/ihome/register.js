@@ -38,7 +38,7 @@ function sendSMSCode() {
         $("#mobile-err").show();
         $(".phonecode-a").attr("onclick", "sendSMSCode();");
         return;
-    }
+    } 
     var imageCode = $("#imagecode").val();
     if (!imageCode) {
         $("#image-code-err span").html("请填写验证码！");
@@ -115,7 +115,7 @@ $(document).ready(function() {
             $("#mobile-err span").html("请填写正确的手机号！");
             $("#mobile-err").show();
             return;
-        }
+        } 
         if (!phoneCode) {
             $("#phone-code-err span").html("请填写短信验证码！");
             $("#phone-code-err").show();
@@ -155,9 +155,8 @@ $(document).ready(function() {
             contentType: "application/json",  // 指明向后端发送的是json格式数据
             dataType: "json", // 指明从后端收到的数据是json格式的
             headers: {
-                "X-CSRFToken":getCookie("csrf_token")
+                "X-CSRFToken": getCookie("csrf_token")
             },  // 自定义的请求头
-
             success: function (resp) {
                 if (resp.errno == 0) {
                     // 注册成功, 引导到主页页面
